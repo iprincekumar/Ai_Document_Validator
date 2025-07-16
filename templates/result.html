@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="popup">
+    ✅ Document validated successfully! 🎉
+</div>
+
+        <h2>✅ Validation Results</h2>
+        <h3>📘 Document Type: {{ results['Document Type'] }}</h3>
+
+        {% if time_taken %}
+    <div class="funny-time">
+        <pre>
+┌─────────────────────────────┐
+│   Took {{ time_taken }} sec to think! 🧠 │
+└─────────────────────────────┘
+        </pre>
+    </div>
+{% endif %}
+
+
+        <h4>📄 Extracted Text:</h4>
+        <pre>{{ text }}</pre>
+
+        <h4>🔍 Validation Details:</h4>
+        <ul>
+            {% for key, value in results.items() if key != 'Document Type' %}
+                <li><strong>{{ key }}:</strong> {{ value if value else 'Not Found' }}</li>
+            {% endfor %}
+        </ul>
+
+        <a class="download" href="/download/{{ filename }}">⬇ Download Original File</a>
+        <br><br>
+        <button onclick="window.location.href = '/';">🔁 Validate Another</button>
+    </div>
+</body>
+</html>

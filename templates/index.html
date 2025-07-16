@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Document Validator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>📤 Upload Document for AI Validation</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="popup">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
+            <input type="file" name="document" accept=".png,.jpg,.jpeg,.pdf" required>
+            <button type="submit">Validate 📄</button>
+        </form>
+        <div id="loader" class="loader-container">
+            <div class="loader"></div>
+            <p>Validating with AI 🤖...</p>
+        </div>
+    </div>
+    <script>
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

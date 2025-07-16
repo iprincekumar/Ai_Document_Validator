@@ -1,0 +1,9 @@
+Flask==2.3.3
+Werkzeug==2.3.7
+opencv-python==4.10.0.82
+pytesseract==0.3.10
+spacy==3.7.2
+numpy==1.26.4
+Pillow==10.3.0
+scikit-learn==1.4.2
+pdf2image==1.17.0
